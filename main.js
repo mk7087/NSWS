@@ -2,6 +2,7 @@ if( [ 'win32', 'linux', 'darwin' ].indexOf( process.platform.toLowerCase() ) == 
 
 var http          = require( 'http' );
 var fs            = require( 'fs' );
+var url           = require( 'url' );
 
 var port     = 80;
 var hostname = 'localhost';
@@ -34,7 +35,13 @@ for( var i = 2; i < process.argv.length; i++ ){
 
 var server = http.createServer();
 
+var path_action = [];
 server.on( 'request', function( http_request, http_response ){
+    var parsed_url = url.parse( decodeURI( http_request.url ), true );
+    var post = [];
+    if( path_action[ parsed_url.pathname ] === 'function' ){
+        path_action[ parsed_url.pathname ]( parsed_url , parsed_url);
+    }
 })
 
 server.listen( port, hostname );
