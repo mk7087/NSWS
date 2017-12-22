@@ -1,4 +1,4 @@
-if( [ 'win32', 'linux', 'darwin' ].indexOf( process.platform.toLowerCase() ) == -1 ){ console.log('This platform is not supported'); console.log('If you stil want it please comment out or delete the first line of main.js'); process.exit( 1 ); }
+if( [ 'win32', 'linux', 'darwin' ].indexOf( process.platform.toLowerCase() ) == -1 ){ console.log( 'This platform is not supported' ); console.log( 'If you stil want it please comment out or delete the first line of main.js' ); process.exit( 1 ); }
 
 var http          = require( 'http' );
 var fs            = require( 'fs' );
