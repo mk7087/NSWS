@@ -41,7 +41,7 @@ server.on( 'request', function( http_request, http_response ){
     var post = [];
     if( path_action[ parsed_url.pathname ] === 'function' ){
         var path = parsed_url.pathname.replace(/\/index.(html?|php)$/,'/')
-        path_action[ parsed_url.pathname ]( parsed_url , parsed_url);
+        path_action[ parsed_url.pathname ]( parsed_url , path);
     }
 })
 
