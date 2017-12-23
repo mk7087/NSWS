@@ -40,6 +40,7 @@ server.on( 'request', function( http_request, http_response ){
     var parsed_url = url.parse( decodeURI( http_request.url ), true );
     var post = [];
     if( path_action[ parsed_url.pathname ] === 'function' ){
+        var path = parsed_url.pathname.replace(/\/index.(html?|php)$/,'/')
         path_action[ parsed_url.pathname ]( parsed_url , parsed_url);
     }
 })
